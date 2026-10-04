@@ -1,0 +1,2 @@
+date,session_id,question_id,source_type,source_page,bok_id,rule,mode,hint_before_answer,seen_status,answer,confidence,verified_answer,verification_status,correct,reasoning_status,error_code,time_seconds,time_type,next_review,notes
+2026-08-24,S-EXAMPLE,TQ-000,user_pdf_original,NA,EXAMPLE,breach-notification-actor,independent,no,first_seen,A,2,B,verified,no,link_missing,A,NA,unmeasured,2026-08-25,虚构示例行：原作者的真实逐题记录已移除

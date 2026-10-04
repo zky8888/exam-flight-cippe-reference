@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">GDPR principles 数据安检图</title>
+  <desc id="desc">按照拿数据之前、使用数据时、事情完成后和全程证明四个阶段理解 GDPR 原则，并突出 purpose limitation、transparency 和 data minimisation 的区别。</desc>
+  <defs>
+    <style>
+      .title { font: 700 32px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      .subtitle { font: 500 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #536078; }
+      .phase { font: 700 22px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      .question { font: 600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      .term { font: 500 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #536078; }
+      .active-term { font: 700 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #075E54; }
+      .contrast { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      .contrast-term { font: 600 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #075E54; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="900" fill="#F7F9FC"/>
+  <text x="60" y="58" class="title">GDPR principles：别背名词，让数据过安检</text>
+  <text x="60" y="94" class="subtitle">先找事实发生在哪一步 → 找到最先响的警报 → 最后贴上英文原则名</text>
+
+  <rect x="60" y="118" width="1080" height="42" rx="21" fill="#E9F3FF"/>
+  <text x="600" y="145" class="subtitle" text-anchor="middle">单选题允许多个原则相关，但优先选择题干事实最直接击中的那个</text>
+
+  <rect x="50" y="190" width="350" height="410" rx="22" fill="#FFFFFF" stroke="#D9E0EA" stroke-width="2"/>
+  <circle cx="85" cy="230" r="19" fill="#315EFB"/>
+  <text x="85" y="237" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">1</text>
+  <text x="118" y="237" class="phase">拿数据之前</text>
+
+  <circle cx="83" cy="295" r="7" fill="#8793A8"/>
+  <text x="105" y="290" class="question">有依据吗？</text>
+  <text x="105" y="316" class="term">lawfulness</text>
+
+  <circle cx="83" cy="370" r="7" fill="#8793A8"/>
+  <text x="105" y="365" class="question">会坑人吗？</text>
+  <text x="105" y="391" class="term">fairness</text>
+
+  <rect x="68" y="420" width="314" height="64" rx="14" fill="#E2F5EF"/>
+  <circle cx="83" cy="452" r="8" fill="#0F8A76"/>
+  <text x="105" y="447" class="question">我们知道为什么吗？</text>
+  <text x="105" y="472" class="active-term">purpose limitation</text>
+
+  <rect x="68" y="503" width="314" height="64" rx="14" fill="#E2F5EF"/>
+  <circle cx="83" cy="535" r="8" fill="#0F8A76"/>
+  <text x="105" y="530" class="question">他们知道为什么吗？</text>
+  <text x="105" y="555" class="active-term">transparency</text>
+
+  <path d="M405 394 H420" stroke="#8290A6" stroke-width="3" stroke-linecap="round"/>
+  <path d="M414 386 L422 394 L414 402" fill="none" stroke="#8290A6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="425" y="190" width="350" height="410" rx="22" fill="#FFFFFF" stroke="#D9E0EA" stroke-width="2"/>
+  <circle cx="460" cy="230" r="19" fill="#315EFB"/>
+  <text x="460" y="237" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">2</text>
+  <text x="493" y="237" class="phase">拿到和使用时</text>
+
+  <rect x="443" y="278" width="314" height="70" rx="14" fill="#E2F5EF"/>
+  <circle cx="458" cy="313" r="8" fill="#0F8A76"/>
+  <text x="480" y="307" class="question">只拿必要的吗？</text>
+  <text x="480" y="334" class="active-term">data minimisation</text>
+
+  <circle cx="458" cy="397" r="7" fill="#8793A8"/>
+  <text x="480" y="392" class="question">数据正确吗？</text>
+  <text x="480" y="418" class="term">accuracy</text>
+
+  <circle cx="458" cy="492" r="7" fill="#8793A8"/>
+  <text x="480" y="487" class="question">保护安全吗？</text>
+  <text x="480" y="513" class="term">integrity &amp; confidentiality</text>
+
+  <path d="M780 394 H795" stroke="#8290A6" stroke-width="3" stroke-linecap="round"/>
+  <path d="M789 386 L797 394 L789 402" fill="none" stroke="#8290A6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="800" y="190" width="350" height="410" rx="22" fill="#FFFFFF" stroke="#D9E0EA" stroke-width="2"/>
+  <circle cx="835" cy="230" r="19" fill="#315EFB"/>
+  <text x="835" y="237" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">3</text>
+  <text x="868" y="237" class="phase">事情做完以后</text>
+
+  <circle cx="833" cy="315" r="7" fill="#8793A8"/>
+  <text x="855" y="310" class="question">还需要留着吗？</text>
+  <text x="855" y="336" class="term">storage limitation</text>
+
+  <path d="M835 380 V500" stroke="#C7D0DD" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="835" cy="435" r="10" fill="#315EFB"/>
+  <text x="865" y="425" class="question">目的完成以后，</text>
+  <text x="865" y="456" class="question">不应无期限保存</text>
+
+  <rect x="50" y="628" width="1100" height="88" rx="20" fill="#172033"/>
+  <text x="84" y="665" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">贯穿全程：能证明吗？</text>
+  <text x="84" y="694" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="500" fill="#C9D3E1">accountability — 不只是“做对”，还要留有证据证明自己做对</text>
+
+  <text x="60" y="762" class="phase">今天只需要真正记住这三个口语警报</text>
+
+  <rect x="50" y="785" width="350" height="82" rx="18" fill="#E2F5EF"/>
+  <text x="225" y="819" class="contrast" text-anchor="middle">公司不知道 why</text>
+  <text x="225" y="847" class="contrast-term" text-anchor="middle">→ purpose limitation</text>
+
+  <rect x="425" y="785" width="350" height="82" rx="18" fill="#E2F5EF"/>
+  <text x="600" y="819" class="contrast" text-anchor="middle">用户不知道 why</text>
+  <text x="600" y="847" class="contrast-term" text-anchor="middle">→ transparency</text>
+
+  <rect x="800" y="785" width="350" height="82" rx="18" fill="#E2F5EF"/>
+  <text x="975" y="819" class="contrast" text-anchor="middle">为了目的拿得太多</text>
+  <text x="975" y="847" class="contrast-term" text-anchor="middle">→ data minimisation</text>
+</svg>

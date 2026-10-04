@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "event_types": ["new_question", "retest", "guided_recall", "correction", "clarification"],
+  "knowledge_effects": ["new_rule", "add_boundary", "add_exception", "strengthen_existing_rule", "contradict_existing_note", "no_knowledge_change"],
+  "misconception_effects": ["new_misconception", "additional_evidence", "possible_match", "no_misconception"],
+  "action_levels": ["auto", "needs_review", "forbidden"],
+  "auto_action_kinds": ["add_explicit_link", "update_index", "project_learning_event"],
+  "review_action_kinds": ["name_misconception", "merge_misconceptions", "supplement_rule", "record_source_conflict"],
+  "forbidden_action_kinds": ["change_original_event", "change_verified_answer", "change_verification_status", "change_source_status", "promote_mastery"]
+}

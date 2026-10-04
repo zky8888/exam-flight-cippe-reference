@@ -1,0 +1,11 @@
+{
+  "_note": "结构示例：原作者的真实进度已移除。这个文件只保存无法从其他记录自动推断的状态，供 scripts/refresh_progress_dashboard.py 生成进度看板。",
+  "exam_date": "YYYY-MM-DD",
+  "current_bok_id": "示例：II.A",
+  "current_route": "示例：先做到期回测，再学下一个主题",
+  "article_status": {
+    "a5": "active",
+    "a6": "lit",
+    "a33": "pending"
+  }
+}

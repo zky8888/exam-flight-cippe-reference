@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>CIPP/E 备考路线图</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: light-dark(#f5f7f3, #111510);
+      --surface: light-dark(#ffffff, #1b2119);
+      --surface-2: light-dark(#eef2ec, #232b20);
+      --ink: light-dark(#172019, #f0f4ee);
+      --muted: light-dark(#637067, #a8b2a5);
+      --line: light-dark(#dce3da, #354032);
+      --green: light-dark(#2b7a45, #76d394);
+      --green-soft: light-dark(#dff2e4, #193a24);
+      --amber: light-dark(#a76414, #f0b45d);
+      --amber-soft: light-dark(#fff0d5, #3c2a13);
+      --blue: light-dark(#356f9d, #7eb8e6);
+      --blue-soft: light-dark(#e2eff8, #17334a);
+      --red: light-dark(#9d4d45, #e9998f);
+      --red-soft: light-dark(#f9e5e2, #42211f);
+      --violet: light-dark(#6952a3, #b9a2f0);
+      --shadow: 0 12px 36px light-dark(rgb(28 47 33 / 8%), rgb(0 0 0 / 24%));
+      --radius: 22px;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 9% 0%, color-mix(in srgb, var(--green) 10%, transparent), transparent 32rem),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    button { font: inherit; }
+    button:focus-visible { outline: 3px solid color-mix(in srgb, var(--blue) 50%, transparent); outline-offset: 3px; }
+    .shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 72px; }
+    .eyebrow { color: var(--green); font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 8px; font-size: clamp(30px, 5vw, 52px); line-height: 1.05; letter-spacing: -.04em; }
+    h2 { margin-bottom: 6px; font-size: clamp(22px, 3vw, 31px); letter-spacing: -.025em; }
+    h3 { margin-bottom: 4px; font-size: 16px; }
+    .muted { color: var(--muted); }
+    .tabular { font-variant-numeric: tabular-nums; }
+
+    .topbar { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 26px; }
+    .date-block { flex: 0 0 auto; text-align: right; }
+    .countdown { font-size: 24px; font-weight: 850; }
+    .small { font-size: 13px; }
+
+    .overview { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr); gap: 16px; }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
+      box-shadow: var(--shadow);
+    }
+    .journey-panel { padding: clamp(22px, 4vw, 36px); }
+    .journey-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+    .big-number { display: flex; align-items: baseline; gap: 8px; margin-top: 10px; }
+    .big-number strong { font-size: clamp(48px, 8vw, 82px); line-height: .9; letter-spacing: -.06em; }
+    .big-number span { color: var(--muted); font-size: 17px; }
+    .remaining { text-align: right; }
+    .remaining strong { display: block; font-size: 28px; }
+    .maturity-track { display: grid; grid-template-columns: repeat(18, 1fr); gap: 5px; margin: 26px 0 12px; }
+    .maturity-segment { height: 15px; border-radius: 999px; background: var(--line); }
+    .maturity-segment[data-state="S1"] { background: var(--red); }
+    .maturity-segment[data-state="S2"] { background: var(--amber); }
+    .maturity-segment[data-state="S3"] { background: var(--green); }
+    .maturity-segment[data-state="S4"] { background: var(--violet); }
+    .state-summary { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+    .state-summary span { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+    .dot.s1 { background: var(--red); }
+    .dot.s2 { background: var(--amber); }
+    .dot.s3 { background: var(--green); }
+    .dot.s4 { background: var(--violet); }
+
+    .focus-panel { display: flex; flex-direction: column; justify-content: space-between; min-height: 270px; padding: 26px; background: var(--green-soft); border-color: color-mix(in srgb, var(--green) 28%, var(--line)); }
+    .focus-panel .route { margin: 18px 0 28px; font-size: clamp(19px, 2.4vw, 25px); font-weight: 760; line-height: 1.35; }
+    .focus-button { align-self: flex-start; border: 0; border-radius: 999px; padding: 10px 16px; color: light-dark(#fff, #102015); background: var(--green); cursor: pointer; font-weight: 750; }
+
+    .closeout { margin-top: 16px; padding: 26px; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+    .closeout-grid { display: grid; grid-template-columns: 1.05fr .75fr 1fr 1.05fr; gap: 12px; }
+    .closeout-item { min-width: 0; padding: 17px; border-radius: 16px; background: var(--surface-2); }
+    .closeout-item .label { display: block; margin-bottom: 7px; color: var(--muted); font-size: 12px; font-weight: 750; letter-spacing: .08em; }
+    .closeout-item strong { display: block; overflow-wrap: anywhere; }
+    .closeout-item.keep { background: var(--green-soft); }
+    .closeout-item.next { background: var(--blue-soft); }
+
+    .content-section { margin-top: 46px; }
+    .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 12px 0 18px; }
+    .legend span { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 12px; }
+    .bok-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .bok-tile {
+      min-height: 128px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      color: var(--ink);
+      background: var(--surface);
+      cursor: pointer;
+      text-align: left;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .bok-tile:hover { transform: translateY(-2px); }
+    .bok-tile[aria-pressed="true"] { border-color: var(--blue); box-shadow: 0 0 0 2px color-mix(in srgb, var(--blue) 18%, transparent); }
+    .bok-tile[data-state="S0"] { background: color-mix(in srgb, var(--surface) 88%, var(--red-soft)); }
+    .bok-tile[data-state="S1"] { background: var(--red-soft); }
+    .bok-tile[data-state="S2"] { background: var(--amber-soft); }
+    .bok-tile[data-state="S3"] { background: var(--green-soft); }
+    .bok-tile[data-state="S4"] { background: color-mix(in srgb, var(--surface) 45%, var(--violet)); }
+    .tile-top { display: flex; justify-content: space-between; gap: 12px; }
+    .tile-id { font-size: 12px; font-weight: 850; letter-spacing: .08em; }
+    .tile-state { font-size: 12px; font-weight: 850; }
+    .tile-name { display: block; margin-top: 20px; font-weight: 720; }
+    .detail-panel { display: none; margin-top: 12px; padding: 22px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+    .detail-panel.is-open { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .detail-panel .detail-label { margin-bottom: 6px; color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+
+    .article-summary { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 14px 0 20px; color: var(--muted); font-size: 13px; }
+    .article-summary strong { color: var(--ink); }
+    .article-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .article-group { padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+    .article-group-heading { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+    .article-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .article-node { min-height: 38px; padding: 8px 11px; border: 1px solid var(--line); border-radius: 11px; color: var(--muted); background: var(--surface-2); cursor: pointer; }
+    .article-node[data-state="lit"] { color: light-dark(#174d29, #dff7e6); background: var(--green-soft); border-color: color-mix(in srgb, var(--green) 42%, var(--line)); }
+    .article-node[data-state="active"] { color: light-dark(#684000, #ffdda6); background: var(--amber-soft); border-color: color-mix(in srgb, var(--amber) 42%, var(--line)); }
+    .article-node[data-state="next"] { color: light-dark(#174a70, #d9efff); background: var(--blue-soft); border-color: color-mix(in srgb, var(--blue) 48%, var(--line)); }
+    .article-node[aria-pressed="true"] { box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 24%, transparent); }
+    .article-detail { min-height: 116px; margin-top: 12px; padding: 20px; border-radius: 18px; background: var(--surface-2); }
+    .article-detail-top { display: flex; align-items: start; justify-content: space-between; gap: 16px; }
+    .status-pill { flex: 0 0 auto; padding: 5px 9px; border-radius: 999px; background: var(--surface); color: var(--muted); font-size: 12px; font-weight: 800; }
+    .footer-note { margin-top: 40px; color: var(--muted); font-size: 12px; text-align: center; }
+
+    @media (max-width: 900px) {
+      .overview { grid-template-columns: 1fr; }
+      .focus-panel { min-height: auto; }
+      .closeout-grid { grid-template-columns: 1fr 1fr; }
+      .bok-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 650px) {
+      .shell { width: min(100% - 20px, 1180px); padding-top: 20px; }
+      .topbar { align-items: start; }
+      .date-block { text-align: left; }
+      .journey-heading, .topbar, .section-heading { flex-direction: column; align-items: start; }
+      .remaining { text-align: left; }
+      .closeout-grid, .bok-grid, .article-groups, .detail-panel.is-open { grid-template-columns: 1fr; }
+      .maturity-track { gap: 3px; }
+      .maturity-segment { height: 12px; }
+      .panel { border-radius: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">CIPP/E Mission Map</div>
+        <h1>我已经走到哪里</h1>
+        <div class="muted">看累计，不看连续打卡；缺席不生成补课债务。</div>
+      </div>
+      <div class="date-block">
+        <div id="countdown" class="countdown tabular"></div>
+        <div id="as-of" class="muted small"></div>
+      </div>
+    </header>
+
+    <section class="overview" aria-label="总进度">
+      <div class="panel journey-panel">
+        <div class="journey-heading">
+          <div>
+            <div class="eyebrow">18 个 BoK 能力簇</div>
+            <div class="big-number"><strong id="touched-count" class="tabular"></strong><span>已经留下学习证据</span></div>
+          </div>
+          <div class="remaining"><strong id="remaining-count" class="tabular"></strong><span class="muted">尚未系统接触</span></div>
+        </div>
+        <div id="maturity-track" class="maturity-track" aria-label="能力簇成熟度分布"></div>
+        <div id="state-summary" class="state-summary"></div>
+      </div>
+      <aside class="panel focus-panel">
+        <div>
+          <div class="eyebrow">现在只看这一站</div>
+          <div id="current-route" class="route"></div>
+        </div>
+        <button id="show-next" class="focus-button" type="button">看看它在地图上的位置</button>
+      </aside>
+    </section>
+
+    <section class="panel closeout" aria-labelledby="closeout-title">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">Daily landing</div>
+          <h2 id="closeout-title">最近一次收课</h2>
+        </div>
+        <div id="daily-energy" class="muted small"></div>
+      </div>
+      <div class="closeout-grid">
+        <div class="closeout-item">
+          <span class="label">今天走过</span>
+          <strong id="daily-theme"></strong>
+        </div>
+        <div class="closeout-item">
+          <span class="label">投入与作答</span>
+          <strong id="daily-work"></strong>
+        </div>
+        <div class="closeout-item keep">
+          <span class="label">今天留下</span>
+          <strong id="daily-retained"></strong>
+        </div>
+        <div class="closeout-item next">
+          <span class="label">明天第一步</span>
+          <strong id="daily-next"></strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="bok-section" class="content-section" aria-labelledby="bok-title">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">能力地图</div>
+          <h2 id="bok-title">哪些走过，哪些还剩</h2>
+        </div>
+        <div id="response-count" class="muted small tabular"></div>
+      </div>
+      <div class="legend" aria-label="S0 到 S4 状态说明">
+        <span><i class="dot"></i>S0 未接触</span>
+        <span><i class="dot s1"></i>S1 已理解</span>
+        <span><i class="dot s2"></i>S2 当场迁移</span>
+        <span><i class="dot s3"></i>S3 已保持</span>
+        <span><i class="dot s4"></i>S4 已考试化</span>
+      </div>
+      <div id="bok-grid" class="bok-grid"></div>
+      <div id="bok-detail" class="detail-panel" aria-live="polite"></div>
+    </section>
+
+    <section class="content-section" aria-labelledby="article-title">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">Article Trail</div>
+          <h2 id="article-title">核心条文站点</h2>
+        </div>
+      </div>
+      <div id="article-summary" class="article-summary"></div>
+      <div id="article-groups" class="article-groups"></div>
+      <div id="article-detail" class="article-detail" aria-live="polite"></div>
+    </section>
+
+    <div id="build-note" class="footer-note"></div>
+  </main>
+
+  <script>
+    const DATA = /*__CIPPE_PROGRESS_DATA__*/ null;
+    const STATUS = {
+      S0: "未接触",
+      S1: "已理解",
+      S2: "当场迁移",
+      S3: "已保持",
+      S4: "已考试化"
+    };
+    const ARTICLE_STATUS = {
+      lit: "已练习（保持待核对）",
+      active: "修复中",
+      next: "当前下一站",
+      pending: "待学习"
+    };
+
+    function put(id, value) {
+      document.getElementById(id).textContent = value;
+    }
+
+    function daysUntil(dateText) {
+      const target = new Date(`${dateText}T00:00:00+08:00`);
+      const now = new Date();
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.max(0, Math.ceil((target - today) / 86400000));
+    }
+
+    function renderOverview() {
+      put("touched-count", `${DATA.bok.touched} / 18`);
+      put("remaining-count", DATA.bok.counts.S0);
+      put("current-route", DATA.current_route);
+      put("countdown", `距考试 ${daysUntil(DATA.exam_date)} 天`);
+      put("as-of", `进度截至 ${DATA.as_of} · 页面生成 ${DATA.built_at}`);
+
+      const track = document.getElementById("maturity-track");
+      DATA.bok.clusters.forEach((cluster) => {
+        const segment = document.createElement("span");
+        segment.className = "maturity-segment";
+        segment.dataset.state = cluster.status;
+        segment.title = `${cluster.id} ${cluster.name} · ${STATUS[cluster.status]}`;
+        track.appendChild(segment);
+      });
+
+      const summary = document.getElementById("state-summary");
+      Object.keys(STATUS).forEach((state, index) => {
+        const item = document.createElement("span");
+        const dot = document.createElement("i");
+        dot.className = `dot ${index ? state.toLowerCase() : ""}`;
+        item.append(dot, document.createTextNode(`${state} ${DATA.bok.counts[state]} · ${STATUS[state]}`));
+        summary.appendChild(item);
+      });
+    }
+
+    function renderCloseout() {
+      const d = DATA.daily;
+      put("closeout-title", `${d.date} 收课落点`);
+      put("daily-energy", `精力：${d.energy} · 高信心错误：${d.high_confidence_errors}`);
+      put("daily-theme", d.theme);
+      put("daily-work", `${d.minutes} · ${d.questions}`);
+      put("daily-retained", d.retained);
+      put("daily-next", d.tomorrow_first_step);
+    }
+
+    function renderBok() {
+      const evidence = DATA.responses == null ? "有效作答量待补" : `约 ${DATA.responses} 次有效作答 / 判断证据`;
+      const originals = DATA.original_questions;
+      put("response-count", `${evidence} · 307原题 ${originals.attempted}/${originals.total}（${originals.original_coverage_percent}%）`);
+      const host = document.getElementById("bok-grid");
+      const detail = document.getElementById("bok-detail");
+      let selected = null;
+
+      function select(cluster, button) {
+        selected = cluster.id;
+        host.querySelectorAll("button").forEach((node) => node.setAttribute("aria-pressed", String(node === button)));
+        detail.replaceChildren();
+        const left = document.createElement("div");
+        const right = document.createElement("div");
+        const label1 = document.createElement("div");
+        label1.className = "detail-label";
+        label1.textContent = "已有证据";
+        const body1 = document.createElement("div");
+        body1.textContent = cluster.evidence;
+        const label2 = document.createElement("div");
+        label2.className = "detail-label";
+        label2.textContent = "下一升级动作";
+        const body2 = document.createElement("div");
+        body2.textContent = cluster.next;
+        left.append(label1, body1);
+        right.append(label2, body2);
+        detail.append(left, right);
+        detail.classList.add("is-open");
+      }
+
+      DATA.bok.clusters.forEach((cluster) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "bok-tile";
+        button.dataset.state = cluster.status;
+        button.setAttribute("aria-pressed", "false");
+        button.setAttribute("aria-label", `${cluster.id} ${cluster.name}，${cluster.status} ${STATUS[cluster.status]}`);
+        const top = document.createElement("div");
+        top.className = "tile-top";
+        const id = document.createElement("span");
+        id.className = "tile-id";
+        id.textContent = cluster.id;
+        const state = document.createElement("span");
+        state.className = "tile-state";
+        state.textContent = `${cluster.status} · ${STATUS[cluster.status]}`;
+        top.append(id, state);
+        const name = document.createElement("span");
+        name.className = "tile-name";
+        name.textContent = cluster.name;
+        button.append(top, name);
+        button.addEventListener("click", () => select(cluster, button));
+        host.appendChild(button);
+      });
+
+      document.getElementById("show-next").addEventListener("click", () => {
+        const nextCluster = DATA.bok.clusters.find((cluster) => cluster.id === DATA.current_bok_id) || DATA.bok.clusters.find((cluster) => cluster.status === "S0") || DATA.bok.clusters[0];
+        const button = [...host.children][DATA.bok.clusters.indexOf(nextCluster)];
+        document.getElementById("bok-section").scrollIntoView({behavior: "smooth", block: "start"});
+        window.setTimeout(() => select(nextCluster, button), 260);
+      });
+    }
+
+    function renderArticles() {
+      const counts = DATA.article_counts;
+      const summary = document.getElementById("article-summary");
+      const walked = counts.lit + counts.active;
+      [
+        `${walked} / ${DATA.article_total} 已有证据或正在修复`,
+        `${counts.lit} 已练习（不等于S3）`,
+        `${counts.active} 修复中`,
+        `${counts.next} 当前下一站`,
+        `${counts.pending} 待学习`
+      ].forEach((text, index) => {
+        const span = document.createElement("span");
+        if (index === 0) {
+          const strong = document.createElement("strong");
+          strong.textContent = text;
+          span.appendChild(strong);
+        } else {
+          span.textContent = text;
+        }
+        summary.appendChild(span);
+      });
+
+      const groupsHost = document.getElementById("article-groups");
+      const detail = document.getElementById("article-detail");
+      const allButtons = [];
+
+      function selectArticle(article, button) {
+        allButtons.forEach((node) => node.setAttribute("aria-pressed", String(node === button)));
+        detail.replaceChildren();
+        const top = document.createElement("div");
+        top.className = "article-detail-top";
+        const titleBox = document.createElement("div");
+        const overline = document.createElement("div");
+        overline.className = "muted small";
+        overline.textContent = article.cluster;
+        const title = document.createElement("h3");
+        title.textContent = `${article.label} · ${article.title}`;
+        titleBox.append(overline, title);
+        const status = document.createElement("span");
+        status.className = "status-pill";
+        status.textContent = ARTICLE_STATUS[article.status];
+        top.append(titleBox, status);
+        const next = document.createElement("p");
+        next.className = "muted";
+        next.textContent = article.next;
+        detail.append(top, next);
+      }
+
+      DATA.article_groups.forEach((group) => {
+        const section = document.createElement("section");
+        section.className = "article-group";
+        const heading = document.createElement("div");
+        heading.className = "article-group-heading";
+        const title = document.createElement("h3");
+        title.textContent = group.name;
+        const range = document.createElement("span");
+        range.className = "muted small";
+        range.textContent = group.range;
+        heading.append(title, range);
+        const grid = document.createElement("div");
+        grid.className = "article-grid";
+        group.articles.forEach((article) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "article-node";
+          button.dataset.state = article.status;
+          button.setAttribute("aria-pressed", "false");
+          button.title = `${article.title} · ${ARTICLE_STATUS[article.status]}`;
+          button.textContent = article.label;
+          button.addEventListener("click", () => selectArticle(article, button));
+          allButtons.push(button);
+          grid.appendChild(button);
+        });
+        section.append(heading, grid);
+        groupsHost.appendChild(section);
+      });
+
+      const firstNextIndex = DATA.article_groups.flatMap((group) => group.articles).findIndex((article) => article.status === "next");
+      const allArticles = DATA.article_groups.flatMap((group) => group.articles);
+      const initialIndex = firstNextIndex >= 0 ? firstNextIndex : 0;
+      selectArticle(allArticles[initialIndex], allButtons[initialIndex]);
+    }
+
+    renderOverview();
+    renderCloseout();
+    renderBok();
+    renderArticles();
+    put("build-note", "点亮依据来自每日学习记录与 BoK 证据矩阵；没有新证据就不升级。");
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# SQLite runtime files (keep the main .sqlite3 database)
+*.sqlite3-shm
+*.sqlite3-wal
+*.sqlite3-journal
+
+# Local temporary files
+tmp/
+*.tmp
+*.bak
+knowledge_base/article_map_install_backup_*/
+
+# Local rendered videos
+*.mp4
+
+# Obsidian per-device window state
+.obsidian/workspace.json
+
+# FUSE mount temporary files
+.fuse_hidden*
