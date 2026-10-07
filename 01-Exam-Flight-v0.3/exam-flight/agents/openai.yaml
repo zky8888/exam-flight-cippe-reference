@@ -1,0 +1,4 @@
+interface:
+  display_name: "Exam Flight 备考陪练"
+  short_description: "从考试目标出发，找题拆题、对接教材，带你学习、做题、修错、回测和模拟，进度存成文件可随时接上"
+  default_prompt: "使用 $exam-flight 带我备考。我准备参加【具体考试和科目】，考试时间是【日期或未定】，手上有【材料】，每天大约能学【时间】。先带我开始第一步。"
